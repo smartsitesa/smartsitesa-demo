@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartSite SA | Affordable Websites for South African Businesses</title>
+  <meta name="description" content="Affordable websites for South African small businesses from R299/month. Mobile-friendly design, SEO basics, monthly reports, WhatsApp updates, and ongoing support." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --panel-2: #17233a;
+      --text: #eef2ff;
+      --muted: #b6c2df;
+      --line: #263452;
+      --brand: #5eead4;
+      --brand-2: #60a5fa;
+      --accent: #f59e0b;
+      --success: #86efac;
+      --shadow: 0 20px 40px rgba(0,0,0,.24);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, #08101d 0%, #0d1526 45%, #10192c 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 16, 29, 0.78);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 16px 0;
+    }
+    .brand { display: flex; gap: 12px; align-items: center; font-weight: 800; letter-spacing: .2px; }
+    .brand-badge {
+      width: 40px; height: 40px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #08101d; display: grid; place-items: center; font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+    .nav-links { display: flex; gap: 20px; align-items: center; color: var(--muted); font-size: .95rem; }
+    .nav-cta, .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 20px; border-radius: 999px; font-weight: 700; transition: .2s ease;
+    }
+    .nav-cta, .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #08101d;
+      box-shadow: var(--shadow);
+    }
+    .btn-secondary {
+      background: transparent; border: 1px solid rgba(184, 199, 231, 0.2); color: var(--text);
+    }
+    .hero { padding: 72px 0 56px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+      border-radius: 999px; background: rgba(94, 234, 212, 0.12);
+      color: var(--brand); font-size: .88rem; font-weight: 700; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.02; margin: 0 0 18px; }
+    .hero p { color: var(--muted); font-size: 1.07rem; max-width: 640px; margin: 0 0 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
+    .hero-points {
+      display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px;
+      color: var(--muted); font-size: .95rem;
+    }
+    .hero-card, .panel, .price-card, .step-card, .faq-item {
+      background: linear-gradient(180deg, rgba(18,26,43,.96), rgba(11,18,32,.96));
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 26px; }
+    .mini-stat-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 18px; }
+    .mini-stat {
+      padding: 16px; border-radius: 18px; background: rgba(96,165,250,.08); border: 1px solid rgba(96,165,250,.12);
+    }
+    .mini-stat strong { display: block; font-size: 1.4rem; margin-bottom: 4px; }
+    .section { padding: 28px 0 8px; }
+    .section-head { margin-bottom: 24px; }
+    .section-head h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .section-head p { margin: 0; color: var(--muted); max-width: 720px; }
+    .features, .steps, .faq-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+    }
+    .panel, .step-card, .faq-item { padding: 22px; }
+    .panel h3, .step-card h3, .faq-item h3 { margin: 0 0 10px; }
+    .panel p, .step-card p, .faq-item p { margin: 0; color: var(--muted); }
+    .icon {
+      width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(94,234,212,.12); color: var(--brand); margin-bottom: 14px; font-size: 1.15rem;
+    }
+    .pricing-wrap {
+      display: grid; grid-template-columns: 1fr .95fr; gap: 20px; align-items: stretch;
+    }
+    .price-card { padding: 28px; }
+    .price { font-size: clamp(2.8rem, 6vw, 4.3rem); line-height: 1; margin: 8px 0 8px; }
+    .price small { font-size: 1rem; color: var(--muted); font-weight: 600; }
+    .list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+    .list li { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); }
+    .list li::before { content: "✓"; color: var(--success); font-weight: 900; }
+    .step-number {
+      width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center;
+      background: rgba(245,158,11,.15); color: #fbbf24; font-weight: 800; margin-bottom: 14px;
+    }
+    .cta-box {
+      margin: 40px 0 72px; padding: 28px;
+      background: linear-gradient(135deg, rgba(96,165,250,.16), rgba(94,234,212,.12));
+      border: 1px solid rgba(148,163,184,.14); border-radius: 28px; box-shadow: var(--shadow);
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .cta-box p { margin: 8px 0 0; color: var(--muted); max-width: 700px; }
+    .small-note { color: var(--muted); font-size: .92rem; }
+    footer { padding: 0 0 46px; color: var(--muted); }
+    @media (max-width: 920px) {
+      .hero-grid, .pricing-wrap, .features, .steps, .faq-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-points { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">S</div>
+        <div>
+          <div>SmartSite SA</div>
+          <div class="small-note">Affordable websites for small businesses</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#services">What you get</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="https://wa.me/27689023641?text=Hi%20Charl%2C%20I%20want%20to%20get%20started%20with%20a%20website.">WhatsApp us</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✨ Websites made simple for South African businesses</div>
+          <h1>Get your business online for <span style="color: var(--brand);">R299/month</span>.</h1>
+          <p>
+            SmartSite SA helps small businesses get a clean, mobile-friendly website without the usual stress.
+            We build it, keep it updated, improve your visibility with basic SEO, and make changes just by WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="https://wa.me/27689023641?text=Hi%20Charl%2C%20I%20want%20to%20get%20started%20with%20SmartSite%20SA.">Start on WhatsApp</a>
+            <a class="btn-secondary" href="#pricing">See what’s included</a>
+          </div>
+          <div class="hero-points">
+            <div>✔ No complicated setup process</div>
+            <div>✔ Easy updates by WhatsApp</div>
+            <div>✔ Built for mobile first</div>
+            <div>✔ Monthly activity reporting</div>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="small-note">Why businesses choose SmartSite SA</div>
+          <h3 style="font-size:1.5rem; margin:10px 0 0;">A done-for-you website plan that stays affordable.</h3>
+          <p class="small-note" style="margin-top:12px;">
+            Perfect for businesses that need a proper online presence without paying for a big once-off website project.
+          </p>
+          <div class="mini-stat-grid">
+            <div class="mini-stat">
+              <strong>R299</strong>
+              <span>per month</span>
+            </div>
+            <div class="mini-stat">
+              <strong>24/7</strong>
+              <span>online presence</span>
+            </div>
+            <div class="mini-stat">
+              <strong>WhatsApp</strong>
+              <span>support & updates</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Monthly</strong>
+              <span>activity reports</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>What you get every month</h2>
+          <p>Simple, practical website support focused on the things most small businesses actually need.</p>
+        </div>
+        <div class="features">
+          <article class="panel">
+            <div class="icon">🌐</div>
+            <h3>Professional business website</h3>
+            <p>A clean, modern site that helps customers understand what you do and how to contact you.</p>
+          </article>
+          <article class="panel">
+            <div class="icon">📱</div>
+            <h3>Mobile-friendly design</h3>
+            <p>Your site will look good on phones, because that’s where most people will first find you.</p>
+          </article>
+          <article class="panel">
+            <div class="icon">🔎</div>
+            <h3>Basic SEO setup</h3>
+            <p>We structure the site properly so your business has a better chance of showing up online.</p>
+          </article>
+          <article class="panel">
+            <div class="icon">💬</div>
+            <h3>Updates by WhatsApp</h3>
+            <p>Need a price changed, new photos added, or business hours updated? Just send a WhatsApp.</p>
+          </article>
+          <article class="panel">
+            <div class="icon">🛠️</div>
+            <h3>Ongoing maintenance</h3>
+            <p>We keep the site current and looking professional so you don’t need to manage the technical side.</p>
+          </article>
+          <article class="panel">
+            <div class="icon">📊</div>
+            <h3>Monthly activity report</h3>
+            <p>Receive a simple monthly update showing activity and what’s been happening on your site.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container pricing-wrap">
+        <div class="price-card">
+          <div class="small-note">Simple pricing</div>
+          <h2 style="margin:8px 0 0; font-size:2rem;">One affordable monthly plan</h2>
+          <div class="price">R299 <small>/ month</small></div>
+          <p class="small-note">No confusing packages. Just a clean website, support, updates, and ongoing care in one simple offer.</p>
+          <ul class="list">
+            <li>Business website designed for trust and clarity</li>
+            <li>Mobile-friendly layout</li>
+            <li>Basic SEO setup</li>
+            <li>Updates requested by WhatsApp</li>
+            <li>Website maintenance and content changes</li>
+            <li>Monthly activity/report update</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="small-note">Ideal for</div>
+          <h3 style="font-size:1.5rem; margin:8px 0 10px;">Small businesses that need to look professional online</h3>
+          <p class="small-note">
+            Whether you’re a service business, local shop, beauty brand, guest house, church, or trades business,
+            SmartSite SA gives you a simple way to look more trustworthy online without a big once-off cost.
+          </p>
+          <ul class="list">
+            <li>Businesses with no website yet</li>
+            <li>Businesses relying only on Facebook/WhatsApp</li>
+            <li>Owners who want support without technical hassle</li>
+            <li>Businesses that want a simple monthly option</li>
+          </ul>
+          <a class="btn-primary" style="margin-top:22px; width:100%;" href="https://wa.me/27689023641?text=Hi%20Charl%2C%20I%20want%20the%20R299%20website%20plan.">Get started on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>We keep it simple so you can focus on your business instead of stressing about a website.</p>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <h3>Tell us about your business</h3>
+            <p>Send your business name, services, and any photos or details you want included.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <h3>We build your site</h3>
+            <p>We put together a clean, simple website around your services and contact details.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <h3>Request updates by WhatsApp</h3>
+            <p>Need changes later? Just WhatsApp us and we’ll update the site for you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Short answers to the things business owners usually want to know first.</p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Do I need technical knowledge?</h3>
+            <p>No. SmartSite SA is built for business owners who want help without learning the technical side.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I request updates later?</h3>
+            <p>Yes. You can request changes by WhatsApp and we’ll handle the update for you.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Who is this for?</h3>
+            <p>Any small business that wants a professional online presence without paying a large once-off fee.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta-box">
+        <div>
+          <h2 style="margin:0;">Ready to get your business online?</h2>
+          <p>Send a WhatsApp and let’s get your website started. SmartSite SA keeps it simple, affordable, and easy to maintain.</p>
+        </div>
+        <a class="btn-primary" href="https://wa.me/27689023641?text=Hi%20Charl%2C%20I%20want%20to%20start%20my%20website%20with%20SmartSite%20SA.">Message Charl on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>SmartSite SA — affordable websites for South African small businesses.</div>
+    </div>
+  </footer>
+</body>
+</html>
